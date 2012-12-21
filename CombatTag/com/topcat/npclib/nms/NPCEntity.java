@@ -45,7 +45,6 @@ public class NPCEntity extends EntityPlayer {
 
 		return super.a(entity);
 	}
-        */
 
 	public void i(EntityHuman entity) {
 		if (lastTargetId == -1 || lastTargetId != entity.id) {
