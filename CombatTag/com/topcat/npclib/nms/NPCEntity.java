@@ -37,14 +37,13 @@ public class NPCEntity extends EntityPlayer {
 		bukkitEntity = entity;
 	}
 
-        /*
-        @Override
-	public boolean c(EntityHuman entity) {
+	@Override
+	public boolean a(EntityHuman entity) {
 		EntityTargetEvent event = new NpcEntityTargetEvent(getBukkitEntity(), entity.getBukkitEntity(), NpcEntityTargetEvent.NpcTargetReason.NPC_RIGHTCLICKED);
 		CraftServer server = ((WorldServer) world).getServer();
 		server.getPluginManager().callEvent(event);
 
-		return super.c(entity);
+		return super.a(entity);
 	}
         */
 
