@@ -1,33 +1,5 @@
 package com.trc202.CombatTag;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.logging.Logger;
-
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.ItemInWorldManager;
-import net.minecraft.server.MinecraftServer;
-//import net.slipcor.pvparena.PVPArena;
-//import net.slipcor.pvparena.api.PVPArenaAPI;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.craftbukkit.entity.CraftHumanEntity;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-
 import com.herocraftonline.heroes.Heroes;
 import com.herocraftonline.heroes.characters.CharacterManager;
 import com.herocraftonline.heroes.characters.Hero;
@@ -36,7 +8,6 @@ import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.flags.DefaultFlag;
 import com.sk89q.worldguard.protection.managers.RegionManager;
-import static com.sk89q.worldguard.bukkit.BukkitUtil.*;
 import com.tommytony.war.Warzone;
 import com.topcat.npclib.NPCManager;
 import com.topcat.npclib.entity.NPC;
@@ -48,6 +19,29 @@ import com.trc202.Containers.PlayerDataContainer;
 import com.trc202.Containers.PlayerDataManager;
 import com.trc202.Containers.Settings;
 import com.trc202.helpers.SettingsHelper;
+import java.io.File;
+import java.util.HashMap;
+import java.util.logging.Logger;
+import net.minecraft.server.v1_4_6.EntityHuman;
+import net.minecraft.server.v1_4_6.EntityPlayer;
+import net.minecraft.server.v1_4_6.PlayerInteractManager;
+import net.minecraft.server.v1_4_6.MinecraftServer;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.craftbukkit.v1_4_6.CraftServer;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftHumanEntity;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class CombatTag extends JavaPlugin {
 
@@ -392,7 +386,7 @@ public class CombatTag extends JavaPlugin {
 		WorldGuardPlugin wg = getWorldGuard();
 		if (wg != null) {
 			Location plrLoc = plr.getLocation();
-			Vector pt = toVector(plrLoc);
+			Vector pt = new Vector(plrLoc.getX(), plrLoc.getY(), plrLoc.getZ());
 			
 			RegionManager regionManager = wg.getRegionManager(plr.getWorld());
 			ApplicableRegionSet set = regionManager.getApplicableRegions(pt);
@@ -416,7 +410,7 @@ public class CombatTag extends JavaPlugin {
 			if(isDebugEnabled()){log.info("[CombatTag] Update player data for " + playerName + " !");}
 			//Create an entity to load the player data
 			MinecraftServer server = ((CraftServer)this.getServer()).getServer();
-			EntityPlayer entity = new EntityPlayer(server, server.getWorldServer(0), playerName, new ItemInWorldManager(server.getWorldServer(0)));
+			EntityPlayer entity = new EntityPlayer(server, server.getWorldServer(0), playerName, new PlayerInteractManager(server.getWorldServer(0)));
 			target = (entity == null) ? null : (Player) entity.getBukkitEntity();
 			//Equivalent to
 			/*

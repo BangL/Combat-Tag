@@ -1,10 +1,9 @@
 package com.trc202.CombatTagApi;
 
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-
 import com.trc202.CombatTag.CombatTag;
 import com.trc202.Containers.PlayerDataContainer;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 public class CombatTagApi {
 	

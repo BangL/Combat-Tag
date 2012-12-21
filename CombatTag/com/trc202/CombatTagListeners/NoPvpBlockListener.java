@@ -1,13 +1,12 @@
 package com.trc202.CombatTagListeners;
 
+import com.trc202.CombatTag.CombatTag;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-
-import com.trc202.CombatTag.CombatTag;
 
 public class NoPvpBlockListener implements Listener{
 

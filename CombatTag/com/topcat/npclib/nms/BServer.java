@@ -4,18 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import net.minecraft.server.DedicatedServer;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.PropertyManager;
-import net.minecraft.server.ServerConfigurationManager;
-import net.minecraft.server.WorldServer;
-
+import net.minecraft.server.v1_4_6.DedicatedServer;
+import net.minecraft.server.v1_4_6.MinecraftServer;
+import net.minecraft.server.v1_4_6.PlayerList;
+import net.minecraft.server.v1_4_6.PropertyManager;
+import net.minecraft.server.v1_4_6.WorldServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.CraftServer;
 import org.bukkit.craftbukkit.libs.jline.console.ConsoleReader;
+import org.bukkit.craftbukkit.v1_4_6.CraftServer;
 
 /**
  * Server hacks for Bukkit
@@ -48,7 +46,7 @@ public class BServer {
 		cServer.dispatchCommand(sender, msg);
 	}
 
-	public ServerConfigurationManager getHandle() {
+	public PlayerList getHandle() {
 		return cServer.getHandle();
 	}
 

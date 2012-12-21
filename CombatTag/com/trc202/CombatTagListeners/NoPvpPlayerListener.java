@@ -1,15 +1,16 @@
 package com.trc202.CombatTagListeners;
 
-import net.minecraft.server.EntityPlayer;
-
+import com.topcat.npclib.NPCManager;
+import com.topcat.npclib.entity.NPC;
+import com.trc202.CombatTag.CombatTag;
+import com.trc202.Containers.PlayerDataContainer;
+import net.minecraft.server.v1_4_6.EntityPlayer;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-//import org.bukkit.event.entity.EntityDamageEvent;
-//import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -17,11 +18,6 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
-
-import com.topcat.npclib.NPCManager;
-import com.topcat.npclib.entity.NPC;
-import com.trc202.CombatTag.CombatTag;
-import com.trc202.Containers.PlayerDataContainer;
 
 public class NoPvpPlayerListener implements Listener{
 	

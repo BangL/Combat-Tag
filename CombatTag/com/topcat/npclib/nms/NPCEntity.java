@@ -1,16 +1,14 @@
 package com.topcat.npclib.nms;
 
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.EnumGamemode;
-import net.minecraft.server.ItemInWorldManager;
-import net.minecraft.server.WorldServer;
-
-import org.bukkit.craftbukkit.CraftServer;
-import org.bukkit.event.entity.EntityTargetEvent;
-
 import com.topcat.npclib.NPCManager;
+import net.minecraft.server.v1_4_6.Entity;
+import net.minecraft.server.v1_4_6.EntityHuman;
+import net.minecraft.server.v1_4_6.EntityPlayer;
+import net.minecraft.server.v1_4_6.EnumGamemode;
+import net.minecraft.server.v1_4_6.PlayerInteractManager;
+import net.minecraft.server.v1_4_6.WorldServer;
+import org.bukkit.craftbukkit.v1_4_6.CraftServer;
+import org.bukkit.event.entity.EntityTargetEvent;
 
 /**
  *
@@ -22,12 +20,12 @@ public class NPCEntity extends EntityPlayer {
 	private long lastBounceTick;
 	private int lastBounceId;
 
-	public NPCEntity(NPCManager npcManager, BWorld world, String s, ItemInWorldManager itemInWorldManager) {
+	public NPCEntity(NPCManager npcManager, BWorld world, String s, PlayerInteractManager itemInWorldManager) {
 		super(npcManager.getServer().getMCServer(), world.getWorldServer(), s, itemInWorldManager);
 
 		itemInWorldManager.b(EnumGamemode.SURVIVAL); //Test
 
-		netServerHandler = new NPCNetHandler(npcManager, this);
+		playerConnection = new NPCNetHandler(npcManager, this);
 		lastTargetId = -1;
 		lastBounceId = -1;
 		lastBounceTick = 0;
@@ -39,7 +37,8 @@ public class NPCEntity extends EntityPlayer {
 		bukkitEntity = entity;
 	}
 
-	@Override
+        /*
+        @Override
 	public boolean c(EntityHuman entity) {
 		EntityTargetEvent event = new NpcEntityTargetEvent(getBukkitEntity(), entity.getBukkitEntity(), NpcEntityTargetEvent.NpcTargetReason.NPC_RIGHTCLICKED);
 		CraftServer server = ((WorldServer) world).getServer();
@@ -47,6 +46,7 @@ public class NPCEntity extends EntityPlayer {
 
 		return super.c(entity);
 	}
+        */
 
 	public void i(EntityHuman entity) {
 		if (lastTargetId == -1 || lastTargetId != entity.id) {

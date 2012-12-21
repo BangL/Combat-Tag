@@ -6,23 +6,22 @@ import com.topcat.npclib.nms.BServer;
 import com.topcat.npclib.nms.BWorld;
 import com.topcat.npclib.nms.NPCEntity;
 import com.topcat.npclib.nms.NPCNetworkManager;
-import net.minecraft.server.Entity;
-import net.minecraft.server.ItemInWorldManager;
-import net.minecraft.server.WorldServer;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.logging.Level;
+import net.minecraft.server.v1_4_6.Entity;
+import net.minecraft.server.v1_4_6.PlayerInteractManager;
+import net.minecraft.server.v1_4_6.WorldServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_4_6.entity.CraftEntity;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.*;
-import java.util.logging.Level;
 
 /**
  *
@@ -120,7 +119,7 @@ public class NPCManager {
 				name = tmp;
 			}
 			BWorld world = getBWorld(l.getWorld());
-			NPCEntity npcEntity = new NPCEntity(this, world, name, new ItemInWorldManager(world.getWorldServer()));
+			NPCEntity npcEntity = new NPCEntity(this, world, name, new PlayerInteractManager(world.getWorldServer()));
 			npcEntity.setPositionRotation(l.getX(), l.getY(), l.getZ(), l.getYaw(), l.getPitch());
 			npcEntity.invulnerableTicks = 1;
 			world.getWorldServer().addEntity(npcEntity); //the right way

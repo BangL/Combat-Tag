@@ -1,12 +1,12 @@
 package com.topcat.npclib.entity;
 
+import com.topcat.npclib.NPCUtils;
+import com.topcat.npclib.nms.NPCEntity;
 import java.util.Arrays;
-
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.Packet18ArmAnimation;
-import net.minecraft.server.Packet5EntityEquipment;
-import net.minecraft.server.WorldServer;
-
+import net.minecraft.server.v1_4_6.EntityPlayer;
+import net.minecraft.server.v1_4_6.Packet18ArmAnimation;
+import net.minecraft.server.v1_4_6.Packet5EntityEquipment;
+import net.minecraft.server.v1_4_6.WorldServer;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
@@ -14,11 +14,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import com.topcat.npclib.NPCUtils;
-import com.topcat.npclib.nms.NPCEntity;
-
 public class HumanNPC extends NPC {
-    private net.minecraft.server.ItemStack[] previousEquipment = { null, null, null, null, null };
+    private net.minecraft.server.v1_4_6.ItemStack[] previousEquipment = { null, null, null, null, null };
 
 	public HumanNPC(NPCEntity npcEntity) {
 		super(npcEntity);
@@ -56,11 +53,11 @@ public class HumanNPC extends NPC {
 	    int changes = 0;
 	    
         for (int i = 0; i < previousEquipment.length; i++) {
-            net.minecraft.server.ItemStack previous = previousEquipment[i];
-            net.minecraft.server.ItemStack current = ((EntityPlayer)getEntity()).getEquipment(i);
+            net.minecraft.server.v1_4_6.ItemStack previous = previousEquipment[i];
+            net.minecraft.server.v1_4_6.ItemStack current = ((EntityPlayer)getEntity()).getEquipment(i);
             if (current == null) { continue; }
             
-            if (!net.minecraft.server.ItemStack.equals(previous, current) || (previous != null && !previous.equals(current))) {
+            if (!net.minecraft.server.v1_4_6.ItemStack.equals(previous, current) || (previous != null && !previous.equals(current))) {
                 NPCUtils.sendPacketNearby(getBukkitEntity().getLocation(), new Packet5EntityEquipment(getEntity().id, i, current));
                 ++changes;
             }

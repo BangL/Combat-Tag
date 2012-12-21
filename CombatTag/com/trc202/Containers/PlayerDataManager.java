@@ -1,10 +1,8 @@
 package com.trc202.Containers;
 
-import java.io.File;
-
-import org.bukkit.inventory.ItemStack;
-
 import com.trc202.helpers.SettingsHelper;
+import java.io.File;
+import org.bukkit.inventory.ItemStack;
 
 public class PlayerDataManager {
 	

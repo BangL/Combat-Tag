@@ -1,19 +1,16 @@
 package com.topcat.npclib.entity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityPlayer;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-
 import com.topcat.npclib.NPCManager;
 import com.topcat.npclib.pathing.NPCPath;
 import com.topcat.npclib.pathing.NPCPathFinder;
 import com.topcat.npclib.pathing.Node;
 import com.topcat.npclib.pathing.PathReturn;
+import java.util.ArrayList;
+import java.util.Iterator;
+import net.minecraft.server.v1_4_6.Entity;
+import net.minecraft.server.v1_4_6.EntityPlayer;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 
 public class NPC {
 

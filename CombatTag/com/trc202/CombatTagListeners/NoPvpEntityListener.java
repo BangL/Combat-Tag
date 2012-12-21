@@ -1,5 +1,9 @@
 package com.trc202.CombatTagListeners;
 
+import com.topcat.npclib.entity.NPC;
+import com.trc202.CombatTag.CombatTag;
+import com.trc202.Containers.PlayerDataContainer;
+import com.trc202.Containers.Settings;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -10,11 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
-
-import com.topcat.npclib.entity.NPC;
-import com.trc202.CombatTag.CombatTag;
-import com.trc202.Containers.PlayerDataContainer;
-import com.trc202.Containers.Settings;
 
 public class NoPvpEntityListener implements Listener{
 

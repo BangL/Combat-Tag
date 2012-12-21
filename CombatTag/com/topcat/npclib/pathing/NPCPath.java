@@ -1,7 +1,6 @@
 package com.topcat.npclib.pathing;
 
 import java.util.ArrayList;
-
 import org.bukkit.Location;
 
 public class NPCPath {
