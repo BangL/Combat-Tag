@@ -1,5 +1,9 @@
 package com.trc202.CombatTagListeners;
 
+import com.topcat.npclib.NPCManager;
+import com.topcat.npclib.entity.NPC;
+import com.trc202.CombatTag.CombatTag;
+import com.trc202.Containers.PlayerDataContainer;
 import net.minecraft.server.v1_4_R1.EntityPlayer;
 
 import org.bukkit.ChatColor;
