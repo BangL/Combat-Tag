@@ -1,5 +1,15 @@
 package com.topcat.npclib.entity;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import net.minecraft.server.v1_4_R1.Entity;
+import net.minecraft.server.v1_4_R1.EntityPlayer;
+
+import org.bukkit.craftbukkit.v1_4_R1.entity.CraftEntity;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+
 import com.topcat.npclib.NPCManager;
 import com.topcat.npclib.pathing.NPCPath;
 import com.topcat.npclib.pathing.NPCPathFinder;
@@ -38,7 +48,7 @@ public class NPC {
 		}
 	}
 
-	public org.bukkit.entity.Entity getBukkitEntity() {
+	public CraftEntity getBukkitEntity() {
 		return entity.getBukkitEntity();
 	}
 
